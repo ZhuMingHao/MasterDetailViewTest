@@ -50,7 +50,44 @@ namespace MasterDetailViewTest
         }
         private void MoreBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+
+        }
+
+        private void MyMasterDetailsView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+    }
+
+    public class PageConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            Type page = null;
+            switch (value as string)
+            {
+                case "Steve Johnson":
+                    page = typeof(FistPage);
+                    break;
+                case "Pete Davidson":
+                    page = typeof(SecondPage);
+                    break;
+                case "OneDrive":
+                    page = typeof(FistPage);
+                    break;
+                case "Twitter":
+                    page = typeof(SecondPage);
+                    break;
+                default:
+                    break;
+            }
+
+            return page;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
         }
     }
 
